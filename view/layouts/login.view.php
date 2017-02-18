@@ -11,20 +11,22 @@ session_start();
 	<title>Login Page for simple login type project</title>
 	<link href="css/style.css" rel="stylesheet">
 
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
-	<h2>Login Here</h2>
-
+<?php require_once('navbar.view.php'); ?>
 	
 <div class="container">
 
 		<div class="alert alert-success">
 			<?php if($_GET['message']){
 				echo $_GET['message'];
+			}else{
+				echo "";
 			}
 				?>
+			
 		</div>
 	<div class="row">
 
@@ -40,7 +42,7 @@ session_start();
 				</div>
 
 				<div class="panel-body">
-					<form action="controller/processController.php" method="POST">
+					<form action="../../controller/processController.php" method="POST">
 
 						<div class="form-group">					
 							<label>Username: </label>
