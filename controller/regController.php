@@ -2,29 +2,36 @@
 
 require_once('../models/users.php');
 
-	if($_POST['submit']){
+
+	if(isset($_POST['register'])){
+
+		echo "inside reg controller inside if condition";
 
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		$usertype = $_POST['usertype'];
 		$status = $_POST['status'];
 
-		// var_dump($username, $password, $usertype, $status);die();
-		
+		$datas = array('username'=> $username, 'password' => $password, 
+				'usertype' => $usertype, 'status' => $status);
+
+		// print_r($datas);die();
+
 		$userobj = new users();
 
-		$resdata = $userobj->registerUser($username, $password, $usertype, $status);
+		$resdata = $userobj->registerUser($datas);
 
-		// print_r($resdata);
 
-		//now storing the user information into the session array variable
+		if($resdata === "success"){
+			// echo "data inserted so go to dashboard now";
+			//$_SESSION['success_message'] = ['message' => 'one user is recorded successfully'];
+			header('location: ../login.view.php?message=one user is recorded successfully');
+				
 
-		if($resdata = true){
-			header('location: ../dashboard.view.php');			
 		}else{
-			echo "NO data is been saved";				
+			echo "No data is been saved";				
 		}
 
 	}else{
-		echo "no right coice";
+		echo "There no any data from view";
 	}

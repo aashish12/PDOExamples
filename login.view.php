@@ -16,15 +16,23 @@ session_start();
 </head>
 <body>
 	<h2>Login Here</h2>
+
 	
 <div class="container">
 
+		<div class="alert alert-success">
+			<?php if($_GET['message']){
+				echo $_GET['message'];
+			}
+				?>
+		</div>
 	<div class="row">
 
 		<div class="col-md-6">
-		<h2>This is Intro</h2>
+			<h2>This is Intro</h2>
 		</div>
 
+		
 		<div class="col-md-6">	
 		<div class="panel panel-default">
 				<div class="panel-heading">

@@ -26,19 +26,18 @@ session_start();
 			return $results;
 		}
 
-		public function registerUser($username, $password, $usertype, $status){
+		public function registerUser($datas){
+
 			$stmt = $this->db->prepare("insert into users(username, password, usertype, status) values 
 				(?,?,?,?)");	
-			$stmt->bindParam(1, $username);		
-			$stmt->bindParam(2, $password);
-			$stmt->bindParam(3, $usertype);
-			$stmt->bindParam(4, $status);
+			$stmt->bindParam(1, $datas['username']);		
+			$stmt->bindParam(2, $datas['password']);
+			$stmt->bindParam(3, $datas['usertype']);
+			$stmt->bindParam(4, $datas['status']);
 
 			$stmt->execute();
 
-			$results = $stmt->fetch();
-
-			return $results;
+			return "success";
 		}
 	}
 

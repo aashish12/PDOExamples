@@ -38,7 +38,7 @@
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['userdata']['username']; ?> <span class="caret"></span></a>
 			  <ul class="dropdown-menu">
 				<li><a href="#">Setting</a></li>
-				<li><a href="#">logout</a></li>
+				<li><a href="href="logout.view.php"">logout</a></li>
 			  </ul>
 			</li>
 		  </ul>
@@ -51,6 +51,8 @@
 	<p>To logout please click this button</p> <a href="logout.view.php"><button class="btn btn-default">Logout</button></a>
 
 	</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
