@@ -12,19 +12,35 @@ require_once('../models/users.php');
 
 		$resdata = $userobj->login($username, $password);//login function le jahile pani if username and password millyo vanyo tyo user ko data return garcha 
 
-		//print_r($resdata['id']);die();//$resdata['id'] = 1
 
-		//now storing the user information into the session array variable
+		if($resdata['usertype'] === "admin"){
 
-		
 			$_SESSION['userdata']= array(
 					'id' => $resdata['id'],//
-					'username' =>$resdata['username'],
-					'usertype' =>$resdata['usertype']
+					'username' =>$resdata['username']
 				);
+
+			header('location: ../view/frontend/dashboard.view.php');	
+
+		}elseif($resdata['usertype'] === "user") {
+
+			$_SESSION['userdata']= array(
+					'id' => $resdata['id'],//
+					'username' =>$resdata['username']
+				);
+
+			header('location: ../view/admin/dashboard.view.php');	
+
+		}else{
+			echo "no admin and user is detected";
+		}
+
 		
 
-		header('location: ../view/frontend/dashboard.view.php');
+			
+		
+
+		
 
 	}else{
 		echo "no right coice";

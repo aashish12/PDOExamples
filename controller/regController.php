@@ -25,7 +25,7 @@ require_once('../models/users.php');
 		if($resdata === "success"){
 			// echo "data inserted so go to dashboard now";
 			//$_SESSION['success_message'] = ['message' => 'one user is recorded successfully'];
-			header('location: ../login.view.php?message=one user is recorded successfully');
+			header('location: ../view/layouts/login.view.php?message=one user is recorded successfully');
 				
 
 		}else{
